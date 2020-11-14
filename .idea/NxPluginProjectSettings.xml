@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.github.etkachev.nxwebstorm.ui.settings.PluginProjectSettingsState">
+    <option name="externalLibs">
+      <array>
+        <option value="@nrwl/angular" />
+        <option value="@nrwl/nest" />
+        <option value="@nrwl/node" />
+        <option value="@nrwl/storybook" />
+        <option value="@nrwl/workspace" />
+        <option value="@schematics/angular" />
+        <option value="@nestjs/schematics" />
+        <option value="@ngrx/schematics" />
+      </array>
+    </option>
+  </component>
+</project>
