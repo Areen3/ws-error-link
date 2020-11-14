@@ -22,5 +22,12 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "generator": {
+      "tags": []
+    },
+    "gen-lib": {
+      "tags": []
+    }
+  }
 }

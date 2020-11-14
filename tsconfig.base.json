@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@tsworkspace/gen-lib": ["libs/gen-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

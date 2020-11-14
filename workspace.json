@@ -1,7 +1,80 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "generator": {
+      "root": "apps/generator",
+      "sourceRoot": "apps/generator/src",
+      "projectType": "application",
+      "prefix": "generator",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/generator",
+            "main": "apps/generator/src/main.ts",
+            "tsConfig": "apps/generator/tsconfig.app.json",
+            "assets": ["apps/generator/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/generator/src/environments/environment.ts",
+                  "with": "apps/generator/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "generator:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/generator/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/generator/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "gen-lib": {
+      "root": "libs/gen-lib",
+      "sourceRoot": "libs/gen-lib/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/gen-lib/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/gen-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/node"
+  },
+  "defaultProject": "generator"
 }
